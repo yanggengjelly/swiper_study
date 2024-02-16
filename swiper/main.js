@@ -9,7 +9,7 @@ function showAndHideImage() {
     gsap.to("#scrollImg", {
       opacity: 0,
     });
-  }, 5000);
+  }, 6000);
 }
 // 함수 호출
 showAndHideImage();
@@ -47,6 +47,7 @@ timeline.from(split2.chars, {
   opacity: 0,
   x: -30,
   stagger: 0.1,
+  borderBottom: "4px solid red",
 });
 
 // 애니메이션 시작
