@@ -1,40 +1,149 @@
 @import url("reset.css");
-
+button {
+  all: unset;
+}
 body {
+  background-image: url("./image/bg01.jpg");
+  background-size: 600px;
+  background-position: center;
   height: 100vh;
 }
 .container {
   height: 100%;
-  box-shadow: inset 0 0 20px navy;
 }
-h1 {
+.title {
+  background-color: unset;
   position: absolute;
-  color: white;
+  color: gold;
   left: 50%;
   top: 50%;
-
   transform: translate(-50%, -50%);
-  font-size: 20px;
-  z-index: 20;
+  font-size: 70px;
+  font-weight: 700;
+  z-index: 60;
+  padding: 10px;
+  border-radius: 20px;
 }
 .topBar {
   position: relative;
   width: 100%;
-  height: 80px;
+  height: 0;
   background-color: black;
-  z-index: 10;
+  z-index: 50;
 }
+
 .swiper {
+  padding: 0 20px;
+  box-sizing: border-box;
+  border: 5px solid lightgray;
+  background-color: white;
+  width: 800px;
+  height: 500px;
+  border-radius: 20px;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  overflow: hidden;
 }
 .swiper-wrapper {
   display: flex;
+  flex-direction: column;
 }
+.swiper-pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: gray;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.swiper-pagination-bullet-active {
+  background: black;
+}
+
 .box {
-  width: 200px;
-  height: 200px;
-  box-shadow: inset 0 0 20px indianred;
+  width: 100%;
+  height: 500px;
+  box-shadow: inset 0 0 20px whitesmoke;
+}
+
+.audio-controls {
+  padding: 20px;
+  background-color: white;
+  position: absolute;
+  top: 4%;
+  left: 74%;
+  margin: 20px 0;
+  border: 8px dashed lightgray;
+  box-sizing: border-box;
+}
+.audio-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.audio-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+.audio-title-sub {
+  color: yellowgreen;
+}
+.audio-controls button {
+  padding: 8px 30px;
+  border: 2px solid skyblue;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.chat-container {
+  position: absolute;
+  top: 88%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 160px;
+  border: 2px solid #000;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.chat-input {
+  border: none;
+  padding: 10px;
+  border-top: 2px solid #000;
+}
+
+.hidden {
+  display: none;
+}
+
+#scrollImg {
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
 }
