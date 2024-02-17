@@ -1,20 +1,30 @@
-import { getNode, endScroll } from "../lib/index.js";
+import { getNode, startScroll } from "../lib/index.js";
 
-function showAndHideImage() {
-  const imageElement = document.getElementById("scrollImg");
+// ! Gsap
+const text = getNode(".title");
+const musicName = getNode(".audio-title");
+const split = new SplitText(text, { type: "words" });
+const split2 = new SplitText(musicName, { type: "chars" });
 
-  imageElement.style.display = "block";
+gsap.from(split.words, {
+  opacity: 0,
+  y: -50,
+  stagger: 0.5, // 각 애니메이션 사이의 지연 시간
+});
 
-  setTimeout(function () {
-    gsap.to("#scrollImg", {
-      opacity: 0,
-    });
-  }, 6000);
-}
-// 함수 호출
-showAndHideImage();
+// 애니메이션을 반복시키기 위한 Timeline 생성
+const timeline = gsap.timeline({ repeat: 1000 });
+// 반복적으로 실행되는 애니메이션 설정
+timeline.from(split2.chars, {
+  opacity: 0,
+  x: -30,
+  stagger: 0.1,
+  duration: 2,
+  borderBottom: "6px solid red",
+});
 
-// ! gsap
+timeline.play();
+
 gsap.from(".topBar", {
   delay: 2,
   ease: "power1.out",
@@ -29,30 +39,6 @@ gsap.to(".title", {
   opacity: 0,
 });
 
-// ! gsap Text
-const text = getNode(".title");
-const split = new SplitText(text, { type: "words" }); //"chars"
-gsap.from(split.words, {
-  opacity: 0,
-  y: -50,
-  stagger: 0.5, // 각 애니메이션 사이의 지연 시간
-});
-
-const musicName = getNode(".audio-title");
-const split2 = new SplitText(musicName, { type: "chars" });
-// 애니메이션을 반복시키기 위한 Timeline 생성
-const timeline = gsap.timeline({ repeat: 1000 });
-// 반복적으로 실행되는 애니메이션 설정
-timeline.from(split2.chars, {
-  opacity: 0,
-  x: -30,
-  stagger: 0.1,
-  duration: 2,
-  borderBottom: "6px solid red",
-});
-// 애니메이션 시작
-timeline.play();
-
 // ! swiper
 const swiper = new Swiper(".swiper", {
   direction: "vertical", // 세로 슬라이드 설정
@@ -66,7 +52,23 @@ const swiper = new Swiper(".swiper", {
   speed: 500, // 슬라이드 전환 속도를 0.5초로 설정
 });
 
-// ! audio
+//! Chat
+
+const input = getNode(".chat-input");
+const messages = getNode(".chat-messages");
+
+input.addEventListener("keydown", function (event) {
+  if (event.key === "Enter" && input.value) {
+    // 엔터키가 눌렸고, 입력란에 텍스트가 있을 때
+    const message = document.createElement("p"); // 새로운 <p> 요소를 생성
+    message.textContent = input.value; // <p> 요소의 텍스트를 입력란의 텍스트로 설정
+    messages.appendChild(message); // 메시지를 메시지 목록에 추가
+    input.value = ""; // 입력란을 비움
+    startScroll(messages); // 스크롤을 가장 아래로 내림 //! clear
+  }
+});
+
+// ! Audio
 const audio = new Audio("./audio/ss501.mp3");
 audio.volume = 0.2;
 getNode("#toggleAudioButton").addEventListener("click", function () {
@@ -81,18 +83,17 @@ getNode("#stopAudioButton").addEventListener("click", function () {
   audio.currentTime = 0;
 });
 
-//! chat
+// ! Inner Fun
+function showAndHideImage() {
+  const imageElement = document.getElementById("scrollImg");
 
-const input = getNode(".chat-input");
-const messages = getNode(".chat-messages");
+  imageElement.style.display = "block";
 
-input.addEventListener("keydown", function (event) {
-  if (event.key === "Enter" && input.value) {
-    // 엔터키가 눌렸고, 입력란에 텍스트가 있을 때
-    const message = document.createElement("p"); // 새로운 <p> 요소를 생성
-    message.textContent = input.value; // <p> 요소의 텍스트를 입력란의 텍스트로 설정
-    messages.appendChild(message); // 메시지를 메시지 목록에 추가
-    input.value = ""; // 입력란을 비움
-    endScroll(messages); // 스크롤을 가장 아래로 내림
-  }
-});
+  setTimeout(function () {
+    gsap.to("#scrollImg", {
+      opacity: 0,
+    });
+  }, 6000);
+}
+// 함수 호출
+showAndHideImage();
