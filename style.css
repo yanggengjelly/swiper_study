@@ -4,7 +4,7 @@ button {
   all: unset;
 }
 body {
-  background-image: url("/image/bg01.jpg");
+  background-image: url("image/bg01.jpg");
   background-size: 400px;
   background-position: center;
   height: 100vh;
