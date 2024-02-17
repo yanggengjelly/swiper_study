@@ -69,7 +69,7 @@ input.addEventListener("keydown", function (event) {
 });
 
 // ! Audio
-const audio = new Audio("./swiper/audio/ss501.mp3");
+const audio = new Audio("./audio/ss501.mp3");
 audio.volume = 0.2;
 getNode("#toggleAudioButton").addEventListener("click", function () {
   if (audio.paused) {
