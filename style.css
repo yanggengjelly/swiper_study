@@ -1,0 +1,226 @@
+/* !Reset */
+@import url("reset.css");
+button {
+  all: unset;
+}
+body {
+  background-image: url("./image/bg01.jpg");
+  background-size: 400px;
+  background-position: center;
+  height: 100vh;
+}
+
+/* ! Components */
+
+/* ? Front */
+.wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  margin: auto;
+  max-width: 1920px;
+  height: 100%;
+  max-height: 720px;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 5px double yellowgreen;
+  border-radius: 20px;
+  background-color: lightgray;
+}
+.title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 70px;
+  font-weight: 700;
+  color: gold;
+  z-index: 9999;
+  padding: 10px;
+  border-radius: 20px;
+}
+.topBar {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 0;
+  background-color: black;
+  z-index: 100;
+}
+
+/* ? Swiper */
+
+.swiper-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.swiper {
+  position: relative;
+  width: 720px;
+  height: 430px;
+  border: 5px double yellowgreen;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background-color: white;
+  overflow: hidden;
+}
+.swiper-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.swiper-pagination {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translate(0%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+}
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: yellowgreen;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.swiper-pagination-bullet-active {
+  background: yellow;
+}
+.box {
+  width: 100%;
+  height: 500px;
+}
+.boxImg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ? Chat */
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 720px;
+  height: 200px;
+  border: 2px solid #000;
+  background-color: #f0f0f0;
+}
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+.chat-input {
+  border: none;
+  padding: 10px;
+  border-top: 2px solid #000;
+}
+.hidden {
+  display: none;
+}
+#scrollImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  border-radius: 30px;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* ? SideBar */
+
+.sideProfile {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  gap: 20px;
+}
+
+/* ? Audio */
+
+.audio-controls {
+  max-height: 200px;
+  padding: 20px;
+  background-color: white;
+  border: 5px double yellowgreen;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+.audio-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.audio-title {
+  font-size: 20px;
+  font-weight: 700;
+  border-bottom: 2px solid;
+  height: 26px;
+}
+.audio-title-sub {
+  color: yellowgreen;
+}
+.audio-button {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+.button {
+  font-size: 40px;
+}
+.audio-controls button {
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* ? Profile */
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 4px 10px 0 grey;
+  box-shadow: inset 0 0 10px 0 plum;
+}
+.profileCover {
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  border: 2px solid plum;
+}
+.profileMiniBox {
+  font-size: 12px;
+  font-weight: 800;
+  background-color: plum;
+  color: palevioletred;
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+.profileDescription {
+  font-size: 14px;
+  line-height: 1.6;
+  text-decoration: underline;
+}
