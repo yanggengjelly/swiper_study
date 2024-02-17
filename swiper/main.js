@@ -26,7 +26,7 @@ gsap.to(".title", {
   duration: 3,
   delay: 1,
   top: "16%",
-  backgroundColor: "white",
+  opacity: 0,
 });
 
 // ! gsap Text
@@ -35,7 +35,7 @@ const split = new SplitText(text, { type: "words" }); //"chars"
 gsap.from(split.words, {
   opacity: 0,
   y: -50,
-  stagger: 0.3, // 각 애니메이션 사이의 지연 시간
+  stagger: 0.5, // 각 애니메이션 사이의 지연 시간
 });
 
 const musicName = getNode(".audio-title");
@@ -47,9 +47,9 @@ timeline.from(split2.chars, {
   opacity: 0,
   x: -30,
   stagger: 0.1,
-  borderBottom: "4px solid red",
+  duration: 2,
+  borderBottom: "6px solid red",
 });
-
 // 애니메이션 시작
 timeline.play();
 
@@ -68,7 +68,7 @@ const swiper = new Swiper(".swiper", {
 
 // ! audio
 const audio = new Audio("./audio/ss501.mp3");
-audio.volume = 0.2; // 볼륨을 절반으로 낮춤
+audio.volume = 0.2;
 getNode("#toggleAudioButton").addEventListener("click", function () {
   if (audio.paused) {
     audio.play();

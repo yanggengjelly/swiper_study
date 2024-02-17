@@ -4,15 +4,28 @@ button {
 }
 body {
   background-image: url("./image/bg01.jpg");
-  background-size: 600px;
+  background-size: 400px;
   background-position: center;
   height: 100vh;
 }
+.wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
 .container {
+  max-width: 1920px;
   height: 100%;
+  max-height: 720px;
+  display: flex;
+  margin: auto;
+  border: 5px double yellowgreen;
+  border-radius: 20px;
+  background-color: lightgray;
+  padding: 20px;
+  box-sizing: border-box;
 }
 .title {
-  background-color: unset;
   position: absolute;
   color: gold;
   left: 50%;
@@ -20,48 +33,49 @@ body {
   transform: translate(-50%, -50%);
   font-size: 70px;
   font-weight: 700;
-  z-index: 60;
+  z-index: 9999;
   padding: 10px;
   border-radius: 20px;
 }
 .topBar {
-  position: relative;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 0;
   background-color: black;
-  z-index: 50;
+  z-index: 100;
 }
 
+.swiper-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
 .swiper {
-  padding: 0 20px;
   box-sizing: border-box;
-  border: 5px solid lightgray;
+  border: 5px double yellowgreen;
   background-color: white;
-  width: 800px;
-  height: 500px;
+  width: 720px;
+  height: 430px;
   border-radius: 20px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   overflow: hidden;
+  position: relative;
 }
 .swiper-wrapper {
   display: flex;
   flex-direction: column;
 }
 .swiper-pagination {
-  display: flex;
-  justify-content: center;
-}
-
-.swiper-pagination {
   position: absolute;
-  bottom: 8px;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  right: 8px;
+  transform: translate(0%, -50%);
   text-align: center;
+  gap: 6px;
 }
-
 .swiper-pagination-bullet {
   width: 10px;
   height: 10px;
@@ -70,34 +84,71 @@ body {
   margin: 0 5px;
   cursor: pointer;
 }
-
 .swiper-pagination-bullet-active {
   background: yellow;
 }
-
 .box {
   width: 100%;
   height: 500px;
-  box-shadow: inset 0 0 20px whitesmoke;
 }
 .boxImg {
   width: 100%;
   height: 100%;
 }
 
+.chat-container {
+  width: 720px;
+  height: 200px;
+  border: 2px solid #000;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+}
+.chat-messages {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.chat-input {
+  border: none;
+  padding: 10px;
+  border-top: 2px solid #000;
+}
+.hidden {
+  display: none;
+}
+#scrollImg {
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.8;
+  pointer-events: none;
+  border-radius: 30px;
+}
+
+.sideProfile {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  gap: 20px;
+}
 .audio-controls {
+  max-height: 200px;
   padding: 20px;
   background-color: white;
-  position: absolute;
-  top: 2%;
-  left: 74%;
-  margin: 20px 0;
-  border: 8px dashed lightgray;
+  border: 5px double yellowgreen;
   box-sizing: border-box;
+  border-radius: 20px;
 }
 .audio-header {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
 }
 .audio-title {
@@ -114,52 +165,43 @@ body {
   gap: 40px;
   justify-content: center;
 }
+.button {
+  font-size: 40px;
+}
 .audio-controls button {
-  padding: 8px 30px;
-  border: 2px solid skyblue;
   border-radius: 20px;
   cursor: pointer;
 }
-
-.chat-container {
-  position: absolute;
-  top: 88%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  height: 160px;
-  border: 2px solid #000;
-  background-color: #f0f0f0;
+.profile {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 4px 10px 0 grey;
+  box-shadow: inset 0 0 10px 0 plum;
 }
-
-.chat-messages {
-  flex-grow: 1;
-  padding: 10px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.profileCover {
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  border: 2px solid plum;
 }
-
-.chat-input {
-  border: none;
-  padding: 10px;
-  border-top: 2px solid #000;
+.profileMiniBox {
+  font-size: 12px;
+  font-weight: 800;
+  background-color: plum;
+  color: palevioletred;
+  padding: 4px 12px;
+  border-radius: 4px;
 }
-
-.hidden {
-  display: none;
-}
-
-#scrollImg {
-  position: absolute;
-  z-index: 20;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.6;
-  pointer-events: none;
-  border-radius: 30px;
+.profileDescription {
+  font-size: 14px;
+  line-height: 1.6;
+  text-decoration: underline;
 }
